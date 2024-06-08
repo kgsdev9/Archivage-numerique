@@ -10,15 +10,24 @@ use Illuminate\Http\Request;
 
 class ProgressActionController extends Controller
 {
-    public function selectTypeDocument($idDepartement)
+    public function typedepartement()
     {
-       $typedocument =  TypeDocument::all();
-        return view('progession.typedocument.liste', compact('typedocument', 'idDepartement'));
+        $listedepartement = Departement::all();
+        return view('progession.departement.liste', compact('listedepartement'));
+    }
+    public function listetypedocument($idDepartement)
+    {
+        $departement = Departement::find($idDepartement);
+        $litetypedocument =  $departement->typedocuments;
+
+
+
+        return view('progession.typedocument.liste', compact('litetypedocument', 'departement'));
     }
 
-    public function selectAnnee($DepartementId, $TypeDocumentId)
+    public function listeannee($DepartementId, $TypeDocumentId)
     {
-
+        // dd($DepartementId, $TypeDocumentId);
         $anne = Annee::all();
         return view('progession.annee.liste', compact( 'anne','DepartementId', 'TypeDocumentId'));
     }

@@ -22,7 +22,7 @@
  @livewireStyles
  <title>Bienvenue</title>
     </head>
-    <body>
+    <body class="bg-light">
         <!-- Wrapper -->
         <div id="db-wrapper">
             <!-- navbar vertical -->
@@ -41,7 +41,7 @@
                     href="{{ route('home') }}"
                    >
                     <i class="nav-icon fe fe-home me-2" ></i>
-                    Tableau de Bordss
+                    Tableau de Bords
                 </a>
 
             </li>
@@ -88,7 +88,7 @@
                 </a>
 
             </li>
-            <!-- Nav item -->
+
             <li class="nav-item">
                 <a
                     class="nav-link  collapsed "
@@ -96,60 +96,58 @@
 
                     >
                     <i class="nav-icon fe fe-lock me-2"></i>
-                   Gestion des Type Doc
+                   Gestion des Départements
                 </a>
 
             </li>
             <!-- Nav item -->
+
+            <!-- Nav item -->
             <li class="nav-item">
                 <a
-                    class="nav-link  collapsed "
-                    href="#"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navecommerce"
-                    aria-expanded="false"
-                    aria-controls="navecommerce">
+                    class="nav-link"
+                    href="#">
                     <i class="nav-icon fe fe-shopping-bag me-2"></i>
                     Gestion des années
                 </a>
 
             </li>
-            <!-- Nav item -->
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href=""
-                    >
-                    <i class="nav-icon fe fe-layout me-2"></i>
-                    Transfert
-                </a>
 
-            </li>
-            <!-- Nav item -->
             <li class="nav-item">
                 <div class="nav-divider"></div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">FACTURE DEVIS</div>
+                <div class="navbar-heading">MODULE</div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
+
+
                 <a class="nav-link " href="chat-app.html">
                     <i class="nav-icon fe fe-message-square me-2"></i>
-                    Gestion Facture
+                   Recherche De Document Avancée
                 </a>
+
+
+                <a class="nav-link " href="chat-app.html">
+                    <i class="nav-icon fe fe-message-square me-2"></i>
+                   Recherche De Document Avancée
+                </a>
+
+                <a class="nav-link " href="chat-app.html">
+                    <i class="nav-icon fe fe-message-square me-2"></i>
+                    Rapports Dossiers
+                </a>
+
             </li>
-
-
-
 
             <li class="nav-item">
                 <div class="nav-divider"></div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Notifications</div>
+                <div class="navbar-heading">Messagérie & Notification </div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
@@ -170,13 +168,13 @@
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                     </span>
-                    <span class="ms-2">Messagérie</span>
+                    <span class="ms-2">WhatsApp</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#">
                     <i class="nav-icon fe fe-database me-2"></i>
-                    Télephones
+                    Télephone
                 </a>
 
             </li>
@@ -193,7 +191,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="nav-icon fe fe-clipboard me-2"></i>
-                   Rapport
+                   Rapport Utilisation
                 </a>
             </li>
             <!-- Nav item -->
@@ -261,16 +259,7 @@
 								</div>
 							</div>
 							<div class="dropdown-divider"></div>
-							<ul class="list-unstyled">
 
-								<li>
-									<a class="dropdown-item" href="#"><i class="fe fe-user me-2"></i>Mon Compte</a>
-								</li>
-
-								<li>
-									<a class="dropdown-item" href="#"><i class="fe fe-settings me-2"></i>Mes activités</a>
-								</li>
-							</ul>
 							<div class="dropdown-divider"></div>
 							<ul class="list-unstyled">
 								<li>
@@ -300,7 +289,7 @@
        <script src="{{asset('assets/js/vendors/flatpickr.js')}}"></script>
        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-       <script src="{{asset('assets/js/functiondossier.js')}}"></script>r
+       <script src="{{asset('assets/js/functiondossier.js')}}"></script>
         @livewireScripts
         </footer>
     </body>

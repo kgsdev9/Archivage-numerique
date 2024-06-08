@@ -9,8 +9,6 @@
                                        'TypeDocumentId'=> $TypeDocumentId,
                                        'AnnneId'=> $vanne->id
                                         ])}}">{{$vanne->libelle}}</a>
-
-
     </div>
         @endforeach
 

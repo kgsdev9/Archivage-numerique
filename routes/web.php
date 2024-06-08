@@ -23,9 +23,10 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('/departements', DepartementController::class);
 
-Route::get('/typedocument/{DepartementId}',[ProgressActionController::class, 'selectTypeDocument'])->name('typedocument.show');
-Route::get('progressfolder/{DepartementId}/{TypeDocumentId}', [ProgressActionController::class, 'selectAnnee'])->name('anne.show');
+Route::get('/typedocument/{DepartementId}',[ProgressActionController::class, 'listetypedocument'])->name('typedocument.show');
+Route::get('progressfolder/{DepartementId}/{TypeDocumentId}', [ProgressActionController::class, 'listeannee'])->name('anne.show');
 Route::get('progressfolderYear/{DepartementId}/{TypeDocumentId}/{AnnneId}', [ProgressActionController::class, 'exploreFolder'])->name('folder.explore');
 Route::resource('create/folder', DossierController::class);
 Route::post('/document/create', [DocumentController::class, 'store'])->name('document.store');
 Route::get('/search', [DocumentController::class, 'search']);
+Route::get('/typedepartement', [ProgressActionController::class, 'typedepartement'])->name('folder-progress');

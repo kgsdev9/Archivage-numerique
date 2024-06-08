@@ -11,7 +11,10 @@ class Document extends Model
 
     protected $fillable = [
         'code',
+        'nom',
         'fichier',
         'dossier_id'
     ];
+
+    
 }

@@ -12,4 +12,14 @@ class Departement extends Model
     protected $fillable = [
         'nom'
     ];
+
+
+    public function dossiers() {
+        return $this->hasMany(Dossier::class);
+    }
+
+
+    public function typedocuments()  {
+        return $this->belongsToMany(TypeDocument::class, 'departement_typedocument', 'departement_id', 'typedocument_id');
+    }
 }

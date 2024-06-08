@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('code', 20);
+            $table->string('nom', 20);
             $table->string('fichier');
             $table->foreignId('dossier_id')->constrained('dossiers')->onDelete('cascade');
             $table->timestamps();

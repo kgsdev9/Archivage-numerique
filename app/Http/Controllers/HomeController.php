@@ -36,8 +36,8 @@ class HomeController extends Controller
         // Récupérer l'année en cours
         $currentYear = $date->year;
         //
-        $departement  = Departement::all();
+        $listedepartement  = Departement::all();
         $dossier = Dossier::take(8)->orderByDesc('created_at')->get();
-        return view('welcome', compact('departement', 'dossier'));
+        return view('welcome', compact('dossier', 'listedepartement'));
     }
 }

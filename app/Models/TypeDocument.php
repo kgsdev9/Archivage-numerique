@@ -10,12 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class TypeDocument extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'code',
         'libelle'
     ];
-
-
 
 }
