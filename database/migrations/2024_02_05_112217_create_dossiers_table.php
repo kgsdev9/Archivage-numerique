@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('typedocument_id')->constrained('type_documents')->onDelete('cascade');
             $table->timestamps();
         });
-    }
+    }  
 
     /**
      * Reverse the migrations.

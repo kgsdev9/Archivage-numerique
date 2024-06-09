@@ -22,10 +22,6 @@ class Dossier extends Model
     ];
 
 
-   
-
-
-
     public function documents(): HasMany
     {
         return $this->hasMany(Document::class);

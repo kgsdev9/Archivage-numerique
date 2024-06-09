@@ -279,7 +279,7 @@
 
 <footer class="pt-5 pb-3 bg-white text-center">
     <div class="container">
-        <p>Si Team Informatique </p>
+        <p>Si Team Informatique Carriere Pro plus  </p>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="{{asset('assets/libs/@popperjs/core/dist/umd/popper.min.js')}}"></script>
         <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>

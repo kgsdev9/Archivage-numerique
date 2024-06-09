@@ -15,4 +15,14 @@ class TypeDocument extends Model
         'libelle'
     ];
 
+
+    protected $primaryKey = 'id';
+
+
+    public function dossiers(): HasMany
+    {
+        return $this->hasMany(Dossier::class);
+    }
+
+
 }

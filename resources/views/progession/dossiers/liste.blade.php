@@ -11,10 +11,10 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#" class="text-dark">Type Document {{$typedocument->libelle}}</a>
+                                <a href="#" class="text-dark">Type Document {{$typedocument->libelle ?? 'ss'}}</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="#" class="text-dark">Departement {{$departement->libelle}}</a>
+                                <a href="#" class="text-dark">Departement {{$departement->libelle ?? 's'}}</a>
                             </li>
 
                             <li class="breadcrumb-item">
@@ -68,7 +68,7 @@
                                 <i class="fe fe-search"></i>
                             </span>
                             <!-- input -->
-                        
+
                             <input type="search" class="form-control ps-6" placeholder="Rechercher un dossier...">
                         </form>
                     </div>

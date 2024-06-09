@@ -33,6 +33,9 @@
                 <div class="tab-pane fade show active">
                     <div class="row">
                         @foreach ($listedepartement as $vlistedepartement)
+                        @php
+                        $nbre = count($vlistedepartement->dossiers->where('departement_id', '=', $vlistedepartement->id));
+                        @endphp
                         <div class="col-xl-2 col-lg-6 col-md-6 col-12">
                             <div class="card mb-4">
                                 <!-- Card body -->
@@ -40,7 +43,9 @@
                                     <div class="text-center">
                                         <img src="{{asset('images/dossier.png')}}" class="rounded-circle avatar-xl mb-3" alt="">
                                         <h4 class="mb-0">{{$vlistedepartement->libelle}}</h4>
-                                        <p class="mb-0">Nombre de dossier</p>
+                                        <p class="mb-0">Nombre de dossier {{$nbre}}
+
+                                        </p>
                                         <br>
                                         <a class="btn btn-outline-secondary" href="{{route('typedocument.show', $vlistedepartement->id)}}">Consulter</a>
                                     </div>

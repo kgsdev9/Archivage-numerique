@@ -28,8 +28,8 @@ class ProgressActionController extends Controller
     public function listeannee($DepartementId, $TypeDocumentId)
     {
         // dd($DepartementId, $TypeDocumentId);
-        $anne = Annee::all();
-        return view('progession.annee.liste', compact( 'anne','DepartementId', 'TypeDocumentId'));
+        $listeanne = Annee::all();
+        return view('progession.annee.liste', compact( 'listeanne','DepartementId', 'TypeDocumentId'));
     }
 
     public function exploreFolder($DepartementId, $TypeDocumentId, $AnneeId)

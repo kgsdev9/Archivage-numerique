@@ -32,16 +32,21 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active">
                     <div class="row">
-                        @foreach ($litetypedocument as $vlistedepartement)
+                        @foreach ($litetypedocument as $vlitetypedocument)
+                        @php
+                        $nbre = DB::select("SELECT COUNT(*) as nombre FROM Dossiers WHERE departement_id  = ". $departement->id ."  AND  typedocument_id  = ". $vlitetypedocument->id ." ");
+                        @endphp
+
+
                         <div class="col-xl-2 col-lg-6 col-md-6 col-12">
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img src="{{asset('images/dossier.png')}}" class="rounded-circle avatar-xl mb-3" alt="">
-                                        <h4 class="mb-0">{{$vlistedepartement->libelle}}</h4>
-                                        <p class="mb-0">Nombre de dossier</p>
+                                        <h4 class="mb-0">{{$vlitetypedocument->libelle}}</h4>
+                                        <p class="mb-0">Nombre de dossier {{$nbre[0]->nombre}}</p>
                                         <br>
-                                        <a class="btn btn-outline-secondary" href="{{route('anne.show', ['DepartementId' =>$departement->id, 'TypeDocumentId'=>$vlistedepartement->id])}}">Consulter</a>
+                                        <a class="btn btn-outline-secondary" href="{{route('anne.show', ['DepartementId' =>$departement->id, 'TypeDocumentId'=>$vlitetypedocument->id])}}">Consulter</a>
                                     </div>
                                 </div>
                             </div>
