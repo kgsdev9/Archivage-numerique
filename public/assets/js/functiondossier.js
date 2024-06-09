@@ -7,7 +7,7 @@ function chargeInfoDossier(params)
     let tabs = param.split('|')
     console.log(tabs)
     document.getElementById("code_dossier").innerHTML = tabs[0];
-    $("#codedossier").val(tabs[1]);
+    $("#iddossier").val(tabs[1]);
 
     //alert(tabs[1]);
 

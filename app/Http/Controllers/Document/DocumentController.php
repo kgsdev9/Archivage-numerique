@@ -27,7 +27,7 @@ class DocumentController extends Controller
         $users = Dossier::where('code', 'like', '%'.$search.'%')
 
                      ->get();
-        
+
 
     }
 
@@ -49,12 +49,14 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $fileName = $request->file('file')->getClientOriginalName();
         $path = $request->file('file')->storeAs('documents', $fileName, 'public');
         Document::create([
             'code'=> rand(100, 24444),
+            'nom'=> $fileName,
             'fichier' => $fileName,
-            'dossier_id'=> 1,
+            'dossier_id'=> $request->iddossier,
         ]);
         return response()->json(['sucess', 'document enregistré avec succes']);
     }

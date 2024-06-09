@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DepartementController extends Controller
 {
     public function index() {
-        $allDepartements = Departement::all();
+        $allDepartements = Departement::orderByDesc('libelle')->get();
         return view('departements.index', compact('allDepartements'));
     }
 }

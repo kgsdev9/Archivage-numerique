@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Ramsey\Uuid\Uuid;
-use App\Models\Dossier;
+use App\Models\Departement;
+use App\Models\TypeDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class DossierController extends Controller
+class GestionSubDepartementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,20 +38,19 @@ class DossierController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request->all());
-        $uuid = Uuid::uuid4();
-        Dossier::create([
-            'unqId'=> $uuid,
-            'code'=> $request->nomdossier,
-            'departement_id'=>$request->departementId,
-            'annee_id'=> $request->anneId,
-            'typedocument_id'=>$request->typedossier,
+        $departement  = Departement::find($request->departementid);
+        $typedocument =   TypeDocument::create([
+            'libelle'=> $request->typedocument,
+            'code' => rand(100, 300)
         ]);
-        return response()->json(['success' => 'Création effecue avec sucess']);
 
-        // return redirect()->back();
+        DB::table('departement_typedocument')->insert([
+            'departement_id' => $departement->id,
+            'typedocument_id' => $typedocument->id,
+        ]);
 
-        // dd('sss');
+        return response()->json('création effectué avec sucesss');
+
     }
 
     /**
@@ -59,10 +59,11 @@ class DossierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($departementid)
     {
-        $dossiers = Dossier::find($id);
-      return view('progession.dossiers.detail', compact('dossiers'));
+        $departement = Departement::find($departementid);
+        $listetypedocument = $departement->typedocuments;
+        return view('gestions.soudepartement.liste', compact('departement', 'listetypedocument'));
     }
 
     /**
@@ -96,6 +97,8 @@ class DossierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $departement = TypeDocument::find($id);
+        $departement->delete();
+        return redirect()->back();
     }
 }

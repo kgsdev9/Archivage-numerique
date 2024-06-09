@@ -121,7 +121,7 @@
                                         <td>{{$vdossier->typedocument->libelle}}</td>
                                         <td>
                                           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="chargeInfoDossier('{{$vdossier->code}}|{{ $vdossier->id }}')">Information</button>
-                                           <button class="btn btn-outline-danger"><i class="fe fe-eye"></i></button>
+                                           <a class="btn btn-outline-danger" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
                                         </td>
                                     </tr>
                                     @empty
@@ -161,28 +161,15 @@
                     Uplaoder les fichiers
                   </button>
                 </h2>
-                {{-- <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <div class="form-group">
-                        <input type="file" id="fichier" name="fichier" class="form-control" multiple>
-                    </div>
-
-                    <div class="d-grid mt-4">
-                        <button class="btn btn-outline-primary"  type="button">Enregistrer</button>
-                    </div>
-                  </div>
-                </div> --}}
                 <form id="uploadForm" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="file">
-                    <input type="text" name="codedossier">
-                    <button type="submit">Envoyer</button>
+                    <input type="file" name="file" id="file">
+                    <input type="text" name="iddossier" id="iddossier">
+                    <br><br>
+                    <button type="button" id="btnformdoc" onclick="saveDocumet()">Envoyer</button>
                 </form>
-
-
               </div>
           </div>
-
     </div>
   </div>
 

@@ -37,7 +37,7 @@ class HomeController extends Controller
         $currentYear = $date->year;
         //
         $listedepartement  = Departement::all();
-        $dossier = Dossier::take(8)->orderByDesc('created_at')->get();
+        $dossier = Dossier::take(20)->orderByDesc('created_at')->get();
         return view('welcome', compact('dossier', 'listedepartement'));
     }
 }

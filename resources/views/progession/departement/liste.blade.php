@@ -8,9 +8,7 @@
                 <div class="mb-2 mb-lg-0">
                     <h1 class="mb-1 h2 fw-bold">
                         LISTE DES DEPARTEMENTS
-
                     </h1>
-                    <!-- Breadcrumb  -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -44,7 +42,6 @@
                                         <img src="{{asset('images/dossier.png')}}" class="rounded-circle avatar-xl mb-3" alt="">
                                         <h4 class="mb-0">{{$vlistedepartement->libelle}}</h4>
                                         <p class="mb-0">Nombre de dossier {{$nbre}}
-
                                         </p>
                                         <br>
                                         <a class="btn btn-outline-secondary" href="{{route('typedocument.show', $vlistedepartement->id)}}">Consulter</a>

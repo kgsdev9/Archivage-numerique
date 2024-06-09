@@ -19,7 +19,9 @@
 <link rel="stylesheet" href="{{asset('assets/css/theme.min.css')}}">
  <link rel="canonical" href="#">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+ <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
  @livewireStyles
+
  <title>Bienvenue</title>
     </head>
     <body class="bg-light">
@@ -280,17 +282,26 @@
 <footer class="pt-5 pb-3 bg-white text-center">
     <div class="container">
         <p>Si Team Informatique Carriere Pro plus  </p>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="{{asset('assets/libs/@popperjs/core/dist/umd/popper.min.js')}}"></script>
-        <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-       <script src="{{asset('assets/libs/simplebar/dist/simplebar.min.js')}}"></script>
-        <script src="{{asset('assets/js/theme.min.js')}}"></script>
-       <script src="{{asset('assets/libs/flatpickr/dist/flatpickr.min.js')}}"> </script>
-       <script src="{{asset('assets/js/vendors/flatpickr.js')}}"></script>
-       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-       <script src="{{asset('assets/js/functiondossier.js')}}"></script>
-        @livewireScripts
-        </footer>
-    </body>
-    </html>
+    </div>
+</footer>
+<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('assets/libs/@popperjs/core/dist/umd/popper.min.js')}}"></script>
+<script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/dataTables.bootstrap5.min.js')}}"></script>
+<script src="{{asset('assets/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('assets/libs/simplebar/dist/simplebar.min.js')}}"></script>
+<script src="{{asset('assets/js/theme.min.js')}}"></script>
+<script src="{{asset('assets/libs/flatpickr/dist/flatpickr.min.js')}}"> </script>
+<script src="{{asset('assets/js/vendors/flatpickr.js')}}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{asset('assets/js/functiondossier.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{{asset('assets/js/datatables.js')}}"></script>
+<script src="{{asset('assets/js/functiontypedocument.js')}}"></script>
+<script src="{{asset('assets/js/vendors/functiondocument.js')}}"></script>
+@yield('scripts')
+@livewireScripts
+</body>
+</html>

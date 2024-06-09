@@ -43,7 +43,7 @@
         <div>
             <div class="table-responsive card">
                 <!-- Table -->
-                <table class="table mb-0 text-nowrap table-hover table-centered table-with-checkbox">
+                <table  id="dataTableBasic" class="table mb-0 text-nowrap table-hover table-centered">
                     <!-- Table Head -->
                     <thead class="table-light">
                         <tr>
@@ -52,6 +52,7 @@
                             <th>Departement</th>
                             <th>Année </th>
                             <th>Type Document</th>
+                            <th>Création</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -75,9 +76,10 @@
                         <td>{{$vdossier->departement->libelle}}</td>
                         <td>{{$vdossier->annee->libelle}}</td>
                         <td>{{$vdossier->typedocument->libelle}}</td>
+                        <td>{{$vdossier->created_at}}</td>
                         <td>
+                            <a class="btn btn-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
 
-                           <button class="btn btn-outline-secondary"><i class="fe fe-eye"></i></button>
                         </td>
                     </tr>
                     @empty

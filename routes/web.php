@@ -3,6 +3,7 @@
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Document\DocumentController;
 use App\Http\Controllers\DossierController;
+use App\Http\Controllers\GestionSubDepartementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgressActionController;
@@ -30,3 +31,7 @@ Route::resource('create/folder', DossierController::class);
 Route::post('/document/create', [DocumentController::class, 'store'])->name('document.store');
 Route::get('/search', [DocumentController::class, 'search']);
 Route::get('/typedepartement', [ProgressActionController::class, 'typedepartement'])->name('folder-progress');
+Route::get('/gestion/subdepartement/{departementid}', [GestionSubDepartementController::class, 'show'])->name('gestion.subdepartement');
+Route::post('/gestion/typedocoument/store', [GestionSubDepartementController::class, 'store'])->name('dep.typedoc.store');
+Route::delete('/gestion/typedocoument/delete/{id}', [GestionSubDepartementController::class, 'destroy'])->name('dep.typedoc.destroy');
+Route::get('/detail/dossier{id}',  [DossierController::class, 'show'])->name('dossier.show');
