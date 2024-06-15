@@ -3,50 +3,17 @@
 <section class="container-fluid p-4">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-12">
-            <!-- Page header -->
-            <div class="border-bottom pb-3 mb-3 d-lg-flex align-items-center justify-content-between">
-                <div class="mb-2 mb-lg-0">
+            <div class="border-bottom pb-3 mb-3 d-lg-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-lg-0">
                     <h1 class="mb-0 h2 fw-bold">Liste des dossiers </h1>
-                    <!-- Breadcrumb -->
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="#" class="text-dark">Type Document {{$typedocument->libelle ?? 'ss'}}</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#" class="text-dark">Departement {{$departement->libelle ?? 's'}}</a>
-                            </li>
-
-                            <li class="breadcrumb-item">
-                                <a href="#" class="text-dark">Annee {{$annee->libelle}}</a>
-                            </li>
-
-                        </ol>
-                    </nav>
                 </div>
-                <div>
-                    <form action="{{route('folder.store')}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="DepartementId" id="DepartementId" value="{{$DepartementId}}">
-                        <input type="hidden" name="TypeDocumentId" id="TypeDocumentId" value="{{$TypeDocumentId}}">
-                        <input type="hidden" name="AnneeId" id="AnneeId" value="{{$AnneeId}}">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="nom_du_dossier" placeholder="Nom du Dossier">
-                            </div>
-                            <div class="col-md-6">
-                                <button type="button" onclick="supprimerUtilisateur({{ $AnneeId }})" class="btn btn-outline-success me-2">Créer un dossier</button>
-
-                            </div>
-
-                        </div>
-
-                    </form>
+                <div class="d-flex">
+                    <a href="{{route('folder-progress')}}" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Créer un dossier</a>
                 </div>
             </div>
         </div>
     </div>
-    <h5>Liste de tous les dossiers du departement {{$departement->libelle}}  </h5>
+    <h5>Liste de tous les dossiers pour tous les departements </h5>
     <hr>
     <div class="row">
         <div>
@@ -63,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @forelse ($dossier as $vdossier)
+                    @forelse ($listedossiers as $vdossier)
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -86,9 +53,7 @@
                         <td>
                             <a class="btn btn-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
                             <a class="btn btn-outline-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-edit"></i></a>
-                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.destroy', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="chargeInfoDossier('{{$vdossier->code}}|{{ $vdossier->id }}')">
-                                <i class="fe fe-plus"></i>
+                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
                         </td>
                     </tr>
                     @empty
@@ -100,5 +65,5 @@
         </div>
     </div>
 </section>
-  @include('modals.documents.createdocument')
+
 @endsection

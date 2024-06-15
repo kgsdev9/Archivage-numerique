@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Ramsey\Uuid\Uuid;
-use App\Models\Dossier;
 use Illuminate\Http\Request;
 
-class DossierController extends Controller
+class AnneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class DossierController extends Controller
      */
     public function index()
     {
-        $listedossiers = Dossier::orderByDesc('created_at')->get();
-        return view('dossiers.index', compact('listedossiers'));
+        //
     }
 
     /**
@@ -37,21 +34,7 @@ class DossierController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd($request->all());
-        $uuid = Uuid::uuid4();
-        Dossier::create([
-            'unqId'=> $uuid,
-            'code'=> $request->nomdossier,
-            'departement_id'=>$request->departementId,
-            'annee_id'=> $request->anneId,
-            'typedocument_id'=>$request->typedossier,
-        ]);
-        return response()->json(['success' => 'Création effecue avec sucess']);
-
-        // return redirect()->back();
-
-        // dd('sss');
+        //
     }
 
     /**
@@ -62,8 +45,7 @@ class DossierController extends Controller
      */
     public function show($id)
     {
-        $dossiers = Dossier::find($id);
-      return view('progession.dossiers.detail', compact('dossiers'));
+        //
     }
 
     /**
@@ -97,9 +79,6 @@ class DossierController extends Controller
      */
     public function destroy($id)
     {
-        $dossier = Dossier::find($id);
-        $doccument =    $dossier->documents;
-        dd($doccument);
-
+        //
     }
 }

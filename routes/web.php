@@ -3,6 +3,7 @@
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Document\DocumentController;
 use App\Http\Controllers\DossierController;
+use App\Http\Controllers\Filter\DocumentController as FilterDocumentController;
 use App\Http\Controllers\GestionSubDepartementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -35,3 +36,9 @@ Route::get('/gestion/subdepartement/{departementid}', [GestionSubDepartementCont
 Route::post('/gestion/typedocoument/store', [GestionSubDepartementController::class, 'store'])->name('dep.typedoc.store');
 Route::delete('/gestion/typedocoument/delete/{id}', [GestionSubDepartementController::class, 'destroy'])->name('dep.typedoc.destroy');
 Route::get('/detail/dossier{id}',  [DossierController::class, 'show'])->name('dossier.show');
+Route::get('/gestion/dossiers', [DossierController::class,'index'])->name('dossier.index');
+Route::get('/dossier/{id}', [DossierController::class,'destroy'])->name('dossier.destroy');
+
+//Recherche de document
+Route::get('/listedocument', [FilterDocumentController::class, 'index'])->name('filtre.document');
+// Route::get('annees', AnneController::class);

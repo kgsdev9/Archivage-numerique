@@ -83,7 +83,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link  collapsed "
-                    href=""
+                    href="{{route('dossier.index')}}"
                     >
                     <i class="nav-icon fe fe-file me-2"></i>
                     Gestion Dossiers

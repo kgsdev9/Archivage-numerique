@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('dossiers', function (Blueprint $table) {
             $table->id();
             $table->string('unqId')->unique();
-            $table->string('code', 20)->unique();
+            $table->string('code')->unique();
             $table->foreignId('departement_id')->constrained('departements')->onDelete('cascade');
             $table->foreignId('annee_id')->constrained('annees')->onDelete('cascade');
             $table->foreignId('typedocument_id')->constrained('type_documents')->onDelete('cascade');
             $table->timestamps();
         });
-    }  
+    }
 
     /**
      * Reverse the migrations.
