@@ -44,4 +44,5 @@ Route::get('/listedesdocuments', [DocumentController::class,'index'])->name('doc
 Route::resource('/users', UserController::class);
 Route::resource('/roles', RoleController::class);
 Route::resource('/annee', AnneController::class);
-Route::get('/listedocument', [FilterDocumentController::class, 'index'])->name('filtre.document');
+Route::get('/listedocument', [DepartementController::class, 'index'])->name('filtre.document');
+// Route::get('/update/departement', [FilterDocumentController::class,''])->name('');

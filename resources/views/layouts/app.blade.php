@@ -98,7 +98,7 @@
 
                     >
                     <i class="nav-icon fe fe-lock me-2"></i>
-                   Gestion des Départements
+                   Partage
                 </a>
 
             </li>
@@ -108,7 +108,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link"
-                    href="#">
+                    href="{{route('annee.index')}}">
                     <i class="nav-icon fe fe-shopping-bag me-2"></i>
                     Gestion des années
                 </a>
@@ -153,7 +153,7 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="mail.html">
+                <a class="nav-link " href="#">
                     <span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +218,7 @@
             <div class="card-body py-6">
 
                 <div class="mt-4">
-                    <h5 class="text-white">GESTION DEV</h5>
+                    <h5 class="text-white">Carriere pro plus SI Team </h5>
                     <p class="text-white-50 fs-6">Contactez nous en cas de probleme </p>
                     <a href="#" class="btn btn-white btn-sm mt-2">Démerraer une discution</a>
                 </div>

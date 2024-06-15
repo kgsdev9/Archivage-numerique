@@ -30,9 +30,7 @@
     <div class="row">
         @forelse ($allDepartements as $vlistedepartement)
         <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-            <!-- Card -->
             <div class="card mb-4">
-                <!-- Card body -->
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
                         <div>
@@ -40,9 +38,9 @@
                         </div>
                     </div>
                     &nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  onclick="editDepartement('{{$vlistedepartement->libelle}}|{{ $vlistedepartement->id }}')">
+                    <a  href="{{route('departements.edit', $vlistedepartement->id)}}" class="btn btn-primary" >
                         Modification
-                      </button>
+                    </a>
                     <form action="{{route('departements.destroy',$vlistedepartement->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -55,28 +53,5 @@
         </div>
         @endforeach
     </div>
-
-
 </section>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edition </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input type="text" id="libelledepartement" name="libelledepartement"  class="form-control">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <button type="button" class="btn btn-primary">Enregistrer</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 @endsection

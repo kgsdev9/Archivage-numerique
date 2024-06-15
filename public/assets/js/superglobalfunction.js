@@ -43,12 +43,42 @@ const createDepartement  = async (event) => {
 const   editDepartement = (parametre) =>  {
 
     const dataparametre =  parametre.split('|');
-    let  libdepartement =   dataparametre[0];
-    let  idparametre =   dataparametre[1];
-    //  document.getElementById("libelledepartement").innerHTML= libdepartement;
-    // document.getElementById("libelledepartement").val = "New text!";
+    $("#libdepartement").val(dataparametre[0]);
+    $("#iddepartement").val(dataparametre[1]);
 
-    $("#libelledepartement").val(dataparametre[0]);
+    console.log(dataparametre);
+}
 
-    console.log(libdepartement);
+
+const updateDepartement = async (event) => {
+
+    event.preventDefault();
+
+    const formdepartemeent = document.getElementById("editformdepartement");
+    const formdata  = new FormData(formdepartemeent);
+    const options = {
+        method:'PATCH',
+        body : formdata
+    };
+
+    
+    await fetch("departements/1", options)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur lors du traitement");
+        }
+        return response.json();
+    }).then(json => {
+        console.log(json);
+        Swal.fire({
+            title: 'Departement créé avec success!',
+            text: json.message,
+            icon: 'success',
+            confirmButtonClass: 'btn btn-primary w-xs mt-2',
+            buttonsStyling: false
+        }).then(function (rslt) {
+            window.location.reload();
+        })
+    })
+
 }

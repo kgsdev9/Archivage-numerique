@@ -13,6 +13,12 @@ class DepartementController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        $departement = Departement::find($id);
+        return view('departements.edit', compact('departement'));
+    }
+
     public function store(Request $request)
     {
         Departement::create([
@@ -23,7 +29,11 @@ class DepartementController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+        $departement = Departement::find($id);
+        $departement->update([
+            'libelle'=>$request->libelledepartement
+        ]);
+        return redirect()->route('departements.index');
     }
 
 
