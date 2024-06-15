@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Document</label>
-                            <input type="file"  name="file" id="file" class="form-control" required>
+                            <input type="file"  name="document[]" id="file" class="form-control" required multiple>
                         </div>
                         <input type="hidden" name="iddossier" id="iddossier">
                         <div class="mb-3 col-12">

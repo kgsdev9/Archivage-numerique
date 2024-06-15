@@ -21,17 +21,17 @@ class DocumentController extends Controller
         return view('documents.liste', compact('listedocuments'));
     }
 
-    public function search(Request $request)
-    {
-        $search = $request->input('search'); // Récupère le terme de recherche depuis la requête
+    // public function search(Request $request)
+    // {
+    //     $search = $request->input('search'); // Récupère le terme de recherche depuis la requête
 
-        // Recherche les utilisateurs correspondant au terme de recherche
-        $users = Dossier::where('code', 'like', '%'.$search.'%')
+    //     // Recherche les utilisateurs correspondant au terme de recherche
+    //     $users = Dossier::where('code', 'like', '%'.$search.'%')
 
-                     ->get();
+    //                  ->get();
 
 
-    }
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -51,16 +51,23 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $fileName = $request->file('file')->getClientOriginalName();
-        $path = $request->file('file')->storeAs('documents', $fileName, 'public');
-        Document::create([
-            'code'=> rand(100, 24444),
-            'nom'=> $fileName,
-            'fichier' => $fileName,
-            'dossier_id'=> $request->iddossier,
-            'user_id' => Auth::user()->id
-        ]);
+        // dd($request->file);
+        // $fileName = $request->file('file')->getClientOriginalName();
+        // $path = $request->file('file')->storeAs('documents', $fileName, 'public');
+
+        foreach ($request->file('document') as $file)
+        {
+           $fileName =  $file->getClientOriginalName();
+            $file->storeAs('documents', $fileName, 'public');
+            Document::create([
+                'code'=> rand(100, 24444),
+                'nom'=> $fileName,
+                'fichier' => $fileName,
+                'dossier_id'=> $request->iddossier,
+                'user_id' => Auth::user()->id
+            ]);
+        }
+
         return response()->json(['sucess', 'document enregistré avec succes']);
     }
 

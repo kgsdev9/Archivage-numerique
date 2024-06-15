@@ -7,9 +7,8 @@
             <!-- Page header -->
             <div class="d-lg-flex align-items-center justify-content-between">
                 <div class="mb-2 mb-lg-0">
-                    <h1 class="mb-0 h2 fw-bold">Liste des documents du dossiers {{$dossiers->code}}</h1>
+                    <h1 class="mb-0 h2 fw-bold">Liste des documents du dossiers {{$dossiers->nom}}</h1>
                 </div>
-
             </div>
         </div>
     </div>
@@ -18,8 +17,6 @@
         <div class="tile">
             <div class="row">
                 <div class="col">
-
-
                     <div class="row mb-2">
                         <div class="col-lg-12">
                             <div class="card">
@@ -27,11 +24,11 @@
 
                                     <div class="d-flex">
                                         <div class="flex-grow-1">
-                                            <h4 class="text-dark">NOM DU DOSSIER  : {{ $dossiers->code }}</h4>
+                                            <h4 class="text-dark">NOM DU DOSSIER  : {{ $dossiers->nom }}</h4>
                                             <div class="hstack gap-3 flex-wrap">
-                                                <div><a href="#" class="text-dark d-block"> {{__('Identifiant Unique')}} :  {{ $dossiers->UnqId }}</a></div>
+                                                <div><a href="#" class="text-dark d-block"> {{__('Identifiant Unique')}} :  {{ $dossiers->unqId }}</a></div>
                                                 <div class="vr"></div>
-                                                <div class="text-muted float-end">{{__('Date de création ')}}  : <span class="text-body fw-medium">{{ date_format(date_create($dossiers->created_at), 'd M, Y à H:i:s') }}</span></div>
+                                                <div class="text-muted float-end">{{__('Date de création ')}}  : <span class="text-body fw-medium">{{ $dossiers->created_at }}</span></div>
                                             </div>
                                         </div>
                                         <div class="flex-shrink-0">
@@ -54,7 +51,7 @@
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <p class="text-muted mb-1">{{__('DEPARTEMENT')}} :</p>
-                                                        <h5 class="mb-0">EDDFFQ</h5>
+                                                        <h5 class="mb-0">{{$dossiers->departement->libelle}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -70,7 +67,7 @@
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <p class="text-muted mb-1">{{__('TYPE DE DOCUMENT')}} :</p>
-                                                        <h5 class="mb-0">DDFG</h5>
+                                                        <h5 class="mb-0">{{$dossiers->typedocument->libelle}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +83,7 @@
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <p class="text-muted mb-1">{{__('Année ')}} :</p>
-                                                        <h5 class="mb-0">dffffg</h5>
+                                                        <h5 class="mb-0">{{$dossiers->annee->libelle}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +135,7 @@
             </div> --}}
 
             <div class="table-responsive overflow-y-hidden">
-                <table class="table mb-0 text-nowrap table-hover table-centered" id="example">
+                <table class="table mb-0 text-nowrap table-hover table-centered" id="dataTableBasic">
                     <thead class="table-light">
                         <tr>
                             <th>Nom du fichier </th>
@@ -154,7 +151,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="icon-shape icon-lg rounded-3 bg-light-primary">
                                     <a href="#">
-                                        <img src="{{ $vdocument->getIconFile() }}" alt="" style="width:25px;"/> 
+                                        <img src="{{ $vdocument->getIconFile() }}" alt="" style="width:25px;"/>
                                     </a>
                                 </div>
                                 <div class="ms-3">
