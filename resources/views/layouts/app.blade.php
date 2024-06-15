@@ -22,7 +22,7 @@
  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
  @livewireStyles
 
- <title>Bienvenue</title>
+ <title>@yield('title')</title>
     </head>
     <body class="bg-light">
         <!-- Wrapper -->
@@ -61,10 +61,10 @@
                 <div id="navCourses" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Gestion role</a>
+                            <a class="nav-link " href="{{route('roles.index')}}">Gestion role</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="">Gestion Utilisateurs</a>
+                            <a class="nav-link " href="{{route('users.index')}}">Gestion Utilisateurs</a>
                         </li>
                     </ul>
                 </div>
@@ -126,7 +126,7 @@
             <li class="nav-item">
 
 
-                <a class="nav-link " href="chat-app.html">
+                <a class="nav-link " href="{{route('document.index')}}">
                     <i class="nav-icon fe fe-message-square me-2"></i>
                    Recherche De Document Avancée
                 </a>
@@ -134,7 +134,7 @@
 
                 <a class="nav-link " href="chat-app.html">
                     <i class="nav-icon fe fe-message-square me-2"></i>
-                   Recherche De Document Avancée
+                   Partage De Document
                 </a>
 
                 <a class="nav-link " href="chat-app.html">
@@ -227,6 +227,8 @@
     </div>
 </nav>
 
+
+
 <main id="page-content">
 	<div class="header">
 		<nav class="navbar-default navbar navbar-expand-lg">
@@ -301,6 +303,7 @@
 <script src="{{asset('assets/js/datatables.js')}}"></script>
 <script src="{{asset('assets/js/functiontypedocument.js')}}"></script>
 <script src="{{asset('assets/js/vendors/functiondocument.js')}}"></script>
+<script src="{{asset('assets/js/superglobalfunction.js')}}"></script>
 @yield('scripts')
 @livewireScripts
 </body>

@@ -17,7 +17,7 @@ class CreateDepartementTypedocumentTable extends Migration
             $table->id();
             $table->foreignId('departement_id')->constrained('departements')->onDelete('cascade');
             $table->foreignId('typedocument_id')->constrained('type_documents')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 

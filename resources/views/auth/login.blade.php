@@ -62,35 +62,44 @@
                                     <p class="text-muted">Un service de qualité une nouvelle plateforme de qualite.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="https://themesbrand.com/velzon/html/master/index.html">
-
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __(' Addresse  E-Mail ') }}</label>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="auth-pass-reset-basic.html" class="text-muted">Mot de passe oublié?</a>
+                                                <a href="{{ route('password.request') }}" class="text-muted">Mot de passe oublié?</a>
                                             </div>
-                                            <label class="form-label" for="password-input">Password</label>
+                                            <label class="form-label" for="password-input">Mot de passe </label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input">
-                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
-                                            <label class="form-check-label" for="auth-remember-check">Se souvenir de moi </label>
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="auth-remember-check"> {{ __('Se Souvenir de  moi ') }}</label>
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Connexion</button>
+                                            <button class="btn btn-success w-100" type="submit">   {{ __('Connexion') }}</button>
                                         </div>
                                     </form>
 
                                     <div class="mt-4 text-center">
-                                        <p class="mb-0"><a href="#" class="fw-semibold text-primary text-decoration-underline"> Demande de compte  </a> </p>
+                                        <p class="mb-0"><a href="{{route('register')}}" class="fw-semibold text-primary text-decoration-underline"> Demande de compte </a> </p>
                                     </div>
                                 </div>
                             </div>

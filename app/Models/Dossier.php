@@ -15,10 +15,11 @@ class Dossier extends Model
 
     protected $fillable = [
         'unqId',
-        'code',
+        'nom',
         'departement_id',
         'annee_id',
-        'typedocument_id'
+        'typedocument_id',
+        'user_id'
     ];
 
 

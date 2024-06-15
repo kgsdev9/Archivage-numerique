@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('dossiers', function (Blueprint $table) {
             $table->id();
             $table->string('unqId')->unique();
-            $table->string('code')->unique();
+            $table->string('nom');
             $table->foreignId('departement_id')->constrained('departements')->onDelete('cascade');
             $table->foreignId('annee_id')->constrained('annees')->onDelete('cascade');
             $table->foreignId('typedocument_id')->constrained('type_documents')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

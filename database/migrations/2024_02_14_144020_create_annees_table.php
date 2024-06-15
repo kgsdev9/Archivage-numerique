@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('annees', function (Blueprint $table) {
             $table->id();
             $table->string('libelle', 4);
-            $table->date('debut');
-            $table->date('fin');
+            $table->date('debut')->nullable();
+            $table->date('fin')->nullable();
             $table->timestamps();
         });
     }

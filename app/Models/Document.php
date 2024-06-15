@@ -13,7 +13,8 @@ class Document extends Model
         'code',
         'nom',
         'fichier',
-        'dossier_id'
+        'dossier_id',
+        'user_id'
     ];
 
     public function dossier()

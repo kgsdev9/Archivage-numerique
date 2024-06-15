@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Document;
+namespace App\Http\Controllers\Role;
 
-use App\Models\Dossier;
-use App\Models\Document;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class DocumentController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,20 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $listedocuments = Document::orderByDesc("created_at")->get();
-        return view('documents.liste', compact('listedocuments'));
-    }
-
-    public function search(Request $request)
-    {
-        $search = $request->input('search'); // Récupère le terme de recherche depuis la requête
-
-        // Recherche les utilisateurs correspondant au terme de recherche
-        $users = Dossier::where('code', 'like', '%'.$search.'%')
-
-                     ->get();
-
-
+        //
     }
 
     /**
@@ -51,17 +35,7 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $fileName = $request->file('file')->getClientOriginalName();
-        $path = $request->file('file')->storeAs('documents', $fileName, 'public');
-        Document::create([
-            'code'=> rand(100, 24444),
-            'nom'=> $fileName,
-            'fichier' => $fileName,
-            'dossier_id'=> $request->iddossier,
-            'user_id' => Auth::user()->id
-        ]);
-        return response()->json(['sucess', 'document enregistré avec succes']);
+        //
     }
 
     /**

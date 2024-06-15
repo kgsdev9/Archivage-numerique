@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Ramsey\Uuid\Uuid;
 use App\Models\Dossier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DossierController extends Controller
 {
@@ -37,16 +39,17 @@ class DossierController extends Controller
      */
     public function store(Request $request)
     {
-
         // dd($request->all());
         $uuid = Uuid::uuid4();
         Dossier::create([
             'unqId'=> $uuid,
-            'code'=> $request->nomdossier,
+            'nom'=> $request->nomdossier,
             'departement_id'=>$request->departementId,
             'annee_id'=> $request->anneId,
             'typedocument_id'=>$request->typedossier,
+            'user_id' => Auth::user()->id
         ]);
+        
         return response()->json(['success' => 'Création effecue avec sucess']);
 
         // return redirect()->back();
@@ -98,8 +101,14 @@ class DossierController extends Controller
     public function destroy($id)
     {
         $dossier = Dossier::find($id);
-        $doccument =    $dossier->documents;
-        dd($doccument);
+        $doccuments =    $dossier->documents;
+        foreach ($doccuments as $document)
+        {
+            Storage::delete('documents/'. $document->fichier);
+            $document->delete();
+        }
+        $dossier->delete();
+        return redirect()->back();
 
     }
 }

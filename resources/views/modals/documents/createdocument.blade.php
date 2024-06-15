@@ -2,36 +2,31 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-
                 <h5>Ajouter des document au dossier <strong id="code_dossier"></strong></h5>
                 <form  id="documentform" enctype="multipart/form-data" action="#">
                     @csrf
                     <div class="row">
-                        <!-- input -->
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Document</label>
                             <input type="file"  name="file" id="file" class="form-control" required>
                         </div>
-
                         <input type="hidden" name="iddossier" id="iddossier">
-
                         <div class="mb-3 col-12">
                             <label class="form-label" for="addressForAddress">Description du ou des documents </label>
                           <textarea name="adresse" class="form-control" id="" cols="30" rows="3" placeholder="Decrivez le document pour une meilleure suivie "></textarea>
                         </div>
-
                         <div class="modal-footer">
                             <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                             <button type="button" id="btndocument" class="btn btn-primary" id="btnformdoc" onclick="saveDocumet()">Enregistrer</button>
                             <div id="loaderdocument" style="display:none">
-                               <span>Chargement en cours </span>
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                  </div>
                             </div>
                         </div>
                     </div>
                 </form>
-
             </div>
-
         </div>
     </div>
   </div>

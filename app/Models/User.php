@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'departement_id',
+        'role_id'
     ];
 
     /**
@@ -32,6 +34,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function  departement() {
+        return $this->belongsTo(Departement::class, 'departement_id');
+    }
+
+
+    public function  role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
 
     /**
      * The attributes that should be cast.

@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="ms-3">
                                     <h5 class="mb-0">
-                                        <a href="#" class="text-inherit">{{$vdossier->code}}</a>
+                                        <a href="#" class="text-inherit">{{$vdossier->nom}}</a>
                                     </h5>
                                 </div>
                             </div>
@@ -84,11 +84,18 @@
                         <td>{{$vdossier->typedocument->libelle}}</td>
                         <td>{{$vdossier->created_at}}</td>
                         <td>
+                            @if(count($vdossier->documents)> 0)
+                            <a class="btn btn-success btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
+                            @else
                             <a class="btn btn-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
-                            <a class="btn btn-outline-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-edit"></i></a>
-                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.destroy', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="chargeInfoDossier('{{$vdossier->code}}|{{ $vdossier->id }}')">
+                            @endif
+
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="chargeInfoDossier('{{$vdossier->nom}}|{{ $vdossier->id }}')">
                                 <i class="fe fe-plus"></i>
+                                </button>
+
+                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.destroy', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
+
                         </td>
                     </tr>
                     @empty

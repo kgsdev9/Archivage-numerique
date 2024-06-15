@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnneController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Document\DocumentController;
 use App\Http\Controllers\DossierController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\GestionSubDepartementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgressActionController;
+use App\Http\Controllers\Role\RoleController;
+use App\Http\Controllers\Users\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,6 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('/departements', DepartementController::class);
-
 Route::get('/typedocument/{DepartementId}',[ProgressActionController::class, 'listetypedocument'])->name('typedocument.show');
 Route::get('progressfolder/{DepartementId}/{TypeDocumentId}', [ProgressActionController::class, 'listeannee'])->name('anne.show');
 Route::get('progressfolderYear/{DepartementId}/{TypeDocumentId}/{AnnneId}', [ProgressActionController::class, 'exploreFolder'])->name('folder.explore');
@@ -38,7 +40,8 @@ Route::delete('/gestion/typedocoument/delete/{id}', [GestionSubDepartementContro
 Route::get('/detail/dossier{id}',  [DossierController::class, 'show'])->name('dossier.show');
 Route::get('/gestion/dossiers', [DossierController::class,'index'])->name('dossier.index');
 Route::get('/dossier/{id}', [DossierController::class,'destroy'])->name('dossier.destroy');
-
-//Recherche de document
+Route::get('/listedesdocuments', [DocumentController::class,'index'])->name('document.index');
+Route::resource('/users', UserController::class);
+Route::resource('/roles', RoleController::class);
+Route::resource('/annee', AnneController::class);
 Route::get('/listedocument', [FilterDocumentController::class, 'index'])->name('filtre.document');
-// Route::get('annees', AnneController::class);

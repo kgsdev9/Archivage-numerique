@@ -1,15 +1,27 @@
 @extends('layouts.app')
+@section('title', 'Annuaire des departements')
 @section('content')
 <section class="container-fluid p-4">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-12">
             <div class="border-bottom pb-3 mb-3 d-lg-flex justify-content-between align-items-center">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="mb-0 h2 fw-bold">Liste des déartementsss </h1>
+                    <h1 class="mb-0 h2 fw-bold">Annuaire des départements</h1>
                 </div>
                 <div class="d-flex">
+                    <form  id="formdepartement" method="POST" onsubmit="createDepartement(event)">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="libelledepartement" id="libelledepartement" class="form-control" placeholder="Nom du departement" required>
+                            </div>
 
-                    <a href="{{route('folder-progress')}}" class="btn btn-primary"> <i class="fe fe-edit"></i>Création </a>
+                            <div class="col-md-6">
+                                <button  type="submit" class="btn btn-primary"> <i class="fe fe-edit"></i>Création </button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -28,7 +40,14 @@
                         </div>
                     </div>
                     &nbsp;&nbsp;
-                    <a href="" class="btn btn-outline-info btn-sm">Modifier</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  onclick="editDepartement('{{$vlistedepartement->libelle}}|{{ $vlistedepartement->id }}')">
+                        Modification
+                      </button>
+                    <form action="{{route('departements.destroy',$vlistedepartement->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-info btn-sm">Supprimer</button>
+                    </form>
 
                     <a href="{{route('gestion.subdepartement', $vlistedepartement->id)}}" class="btn btn-outline-dark btn-sm">Gérer</a>
                 </div>
@@ -39,5 +58,25 @@
 
 
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edition </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="libelledepartement" name="libelledepartement"  class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 @endsection
