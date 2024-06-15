@@ -6,7 +6,7 @@
         <div class="col-lg-12 col-md-12 col-12">
             <div class="border-bottom pb-3 mb-3 d-lg-flex justify-content-between align-items-center">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="mb-0 h2 fw-bold">Bienvenue </h1>
+                    <h1 class="mb-0 h2 fw-bold">Bienvenue {{Auth::user()->name}} </h1>
                 </div>
                 <div class="d-flex">
 

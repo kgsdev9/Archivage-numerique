@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Gestion des Sous departement')
 @section('content')
 <section class="container-fluid p-4">
     <div class="row">
@@ -41,7 +42,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div>
             <div class="table-responsive card">
@@ -62,11 +62,11 @@
                                     <form action="{{route('dep.typedoc.destroy', $vlistetypedocument->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
                                     </form>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-primary" type="button">Information</button>
+                                    <button class="btn btn-primary btn-sm" type="button">Modification</button>
                                 </div>
                             </div>
                         </td>
