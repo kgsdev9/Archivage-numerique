@@ -8,7 +8,7 @@
                     <h1 class="mb-0 h2 fw-bold">Annuaire Utilisateurs</h1>
                 </div>
                 <div class="d-flex">
-                    <a href="#" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Création</a>
+                    <a href="{{route('users.create')}}" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Création</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             <th>Email</th>
                             <th>Departement</th>
                             <th>Role </th>
-                            <th>Date de création</th>
+
                             <th></th>
                         </tr>
                     </thead>
@@ -47,13 +47,8 @@
                             </div>
                         </td>
                          <td>{{$vlisteusers->name}}</td>
-
                          <td>{{$vlisteusers->departement->libelle}}</td>
-
                          <td>{{$vlisteusers->role->libelle}}</td>
-
-                         <td>{{$vlisteusers->created_at}}</td>
-
                         <td>
                             <a class="btn btn-secondary btn-sm" href="{{route('users.edit', $vlisteusers->id)}}"><i class="fe fe-eye"></i></a>
                             <a class="btn btn-outline-secondary btn-sm" href="{{route('users.show', $vlisteusers->id)}}"><i class="fe fe-edit"></i></a>

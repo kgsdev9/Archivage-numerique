@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Models\Role;
 use App\Models\User;
+use App\Models\Departement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,7 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $listedepartements = Departement::all();
+        $listeroles   = Role::all();
+        return view('administration.users.create', compact('listedepartements', 'listeroles'));
     }
 
     /**
@@ -37,8 +42,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        User::create([
+            'name' =>  $request->name,
+            'email' => $request->email,
+            'password' =>Hash::make($request->password),
+            'departement_id' => $request->departement_id,
+            'role_id' => $request->role_id
+        ]);
+        return redirect()->route('users.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -59,7 +74,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        $listedepartements = Departement::all();
+        $listeroles   = Role::all();
+        return view('administration.users.edit', compact('listedepartements', 'listeroles', 'users'));
     }
 
     /**

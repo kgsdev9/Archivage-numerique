@@ -51,7 +51,7 @@
     <div class="row">
         <div>
             <div class="table-responsive card">
-                <table   class="table mb-0 text-nowrap table-hover table-centered">
+                <table   class="table table-striped text-nowrap mb-0 table-centered">
                     <thead class="table-light">
                         <tr>
                             <th>Code Dossier</th>
