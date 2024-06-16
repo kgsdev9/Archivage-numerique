@@ -89,7 +89,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+        $users->update([
+                'name' =>  $request->name,
+                'email' => $request->email,
+                'password' =>$password = $request->password ?  Hash::make($request->password): $users->password,
+                'departement_id' => $request->departement_id,
+                'role_id' => $request->role_id
+        ]);
+
+        return redirect()->route('users.index');
     }
 
     /**

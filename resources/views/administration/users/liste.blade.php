@@ -41,18 +41,17 @@
                                 </div>
                                 <div class="ms-3">
                                     <h5 class="mb-0">
-                                        <a href="#" class="text-inherit">{{$vlisteusers->email}}</a>
+                                        <a href="#" class="text-inherit">{{$vlisteusers->name}}</a>
                                     </h5>
                                 </div>
                             </div>
                         </td>
-                         <td>{{$vlisteusers->name}}</td>
+                         <td>{{$vlisteusers->email}}</td>
                          <td>{{$vlisteusers->departement->libelle}}</td>
                          <td>{{$vlisteusers->role->libelle}}</td>
                         <td>
-                            <a class="btn btn-secondary btn-sm" href="{{route('users.edit', $vlisteusers->id)}}"><i class="fe fe-eye"></i></a>
-                            <a class="btn btn-outline-secondary btn-sm" href="{{route('users.show', $vlisteusers->id)}}"><i class="fe fe-edit"></i></a>
-                            <a class="btn btn-outline-danger btn-sm" href="{{route('users.show', $vlisteusers->id)}}"><i class="fe fe-trash"></i></a>
+                            <a class="btn btn-outline-secondary btn-sm" href="{{route('users.edit', $vlisteusers->id)}}"><i class="fe fe-edit"></i></a>
+                            <a class="btn btn-outline-danger btn-sm" href="{{route('users.destroy', $vlisteusers->id)}}"><i class="fe fe-trash"></i></a>
                         </td>
                     </tr>
                     @empty

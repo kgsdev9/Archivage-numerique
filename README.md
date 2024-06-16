@@ -67,3 +67,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 https://nago.laborasyon.com/demos/layouts/boxed-layout/file-manager.html
+
+
+https://themepixels.me/demo/dashforge2/template/classic/app-file-manager.html
+
+
+icons
+
+https://themepixels.me/demo/dashforge2/components/el-icons.html
+
+
+https://themepixels.me/demo/dashforge2/template/classic/app-file-manager.htmlhttps://coderthemes.com/ubold/layouts/modern/apps-file-manager.html

@@ -5,7 +5,7 @@
         <div class="col-lg-12 col-md-12 col-12">
             <div class="border-bottom pb-3 mb-3 d-lg-flex justify-content-between align-items-center">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="mb-0 h2 fw-bold">Création d'un utilisateur Utilisateurs</h1>
+                    <h1 class="mb-0 h2 fw-bold">Modificiation d'un utilisateur Utilisateurs</h1>
                 </div>
                 <div class="d-flex">
                     <a href="#" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Retourner</a>
@@ -17,8 +17,9 @@
     <hr>
     <div class="row card">
         <div>
-            <form class="row gx-3 needs-validation" novalidate="" action="{{route('users.store')}}" method="POST">
+            <form class="row gx-3 needs-validation" action="{{route('users.update', $users->id)}}" method="POST">
                 @csrf
+                @method('PATCH')
                 <div class="mb-3 col-12 col-md-6">
                     <label class="form-label" for="fname">Nom d'utulisateur</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="Nom d'utilisateur" required="" value="{{$users->name}}">
@@ -28,8 +29,8 @@
                     <input type="email" id="email" name="email" class="form-control" placeholder="Adresse email" required="" value="{{$users->email}}">
                 </div>
                 <div class="mb-3 col-12 col-md-6">
-                    <label class="form-label" for="phone">Mot de passe  </label>
-                    <input type="text" id="password" name="password" class="form-control" placeholder="Phone" required="********">
+                    <label class="form-label" for="phone">Nouveau mot de passse  </label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Phone" >
                 </div>
 
                 <div class="mb-3 col-12 col-md-6">
