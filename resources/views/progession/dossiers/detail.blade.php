@@ -35,8 +35,16 @@
                                             <div>
                                                 <a href="#" class="btn btn-outline-success">
                                                     <span><i class="ri-printer-line"></i></span>
-                                                    <span> {{__('FICHE DE GESTION DES DOCUMENTS')}}   </span>
+                                                    <span> {{__('FICHE DE GESTION DES DOCUMENTS')}} </span>
                                                 </a>
+                                                <br><br>
+                                                <form  method="POST" action="{{route('extract.zip')}}">
+                                                    @csrf
+                                                    <input type="hidden" name="dossierid" id="dossierid" value="{{ $dossiers->id}}">
+                                                    <button type="submit" class="btn btn-primary">{{__('Exporter en Zip')}}</button>
+                                                    </a>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>

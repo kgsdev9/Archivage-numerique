@@ -9,6 +9,7 @@ use App\Http\Controllers\GestionSubDepartementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgressActionController;
+use App\Http\Controllers\Render\ZippController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Users\UserController;
 
@@ -45,4 +46,6 @@ Route::resource('/users', UserController::class);
 Route::resource('/roles', RoleController::class);
 Route::resource('/annee', AnneController::class);
 Route::get('/listedocument', [DepartementController::class, 'index'])->name('filtre.document');
-// Route::get('/update/departement', [FilterDocumentController::class,''])->name('');
+
+
+Route::post('/extractzipp', [ZippController::class,'exportDossier'])->name('extract.zip');

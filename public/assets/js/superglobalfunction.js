@@ -1,4 +1,41 @@
 
+const ExtratZip  = async (event) => {
+    event.preventDefault();
+    const formextract = document.getElementById('extractform');
+    const formdata  = new FormData(formextract);
+    const options = {
+        method:'POST',
+        body : formdata
+    };
+
+    await fetch("/extractzipp", options)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur lors du traitement");
+        }
+        return response.json();
+    }).then(json => {
+        console.log(json);
+        Swal.fire({
+            title: 'Departement créé avec success!',
+            text: json.message,
+            icon: 'success',
+            confirmButtonClass: 'btn btn-primary w-xs mt-2',
+            buttonsStyling: false
+        }).then(function (rslt) {
+            // window.location.reload();
+            alert('sss');
+        })
+    })
+
+
+    // affiche les informations sur du formulaire sur la vue
+
+
+
+
+}
+
 
 
 
@@ -61,7 +98,7 @@ const updateDepartement = async (event) => {
         body : formdata
     };
 
-    
+
     await fetch("departements/1", options)
     .then(response => {
         if (!response.ok) {
@@ -82,3 +119,4 @@ const updateDepartement = async (event) => {
     })
 
 }
+
