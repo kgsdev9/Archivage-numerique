@@ -38,16 +38,25 @@
                         </div>
                     </div>
                     &nbsp;&nbsp;
-                    <a  href="{{route('departements.edit', $vlistedepartement->id)}}" class="btn btn-primary" >
-                        Modification
-                    </a>
-                    <form action="{{route('departements.destroy',$vlistedepartement->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-outline-info btn-sm">Supprimer</button>
-                    </form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a  href="{{route('departements.edit', $vlistedepartement->id)}}" class="btn btn-primary btn-sm" >
+                                Edition
+                            </a>
+                        </div>
 
-                    <a href="{{route('gestion.subdepartement', $vlistedepartement->id)}}" class="btn btn-outline-dark btn-sm">Gérer</a>
+                        <div class="col-md-4">
+                            <form action="{{route('departements.destroy',$vlistedepartement->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-info btn-sm">Supprimer</button>
+                            </form>
+                        </div>
+
+                        <div class="col-md-2">
+                            <a href="{{route('gestion.subdepartement', $vlistedepartement->id)}}" class="btn btn-outline-dark btn-sm">Gérer</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

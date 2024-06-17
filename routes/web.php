@@ -12,7 +12,7 @@ use App\Http\Controllers\ProgressActionController;
 use App\Http\Controllers\Rapport\RapportController;
 use App\Http\Controllers\Document\DocumentController;
 use App\Http\Controllers\GestionSubDepartementController;
-use App\Http\Controllers\Filter\DocumentController as FilterDocumentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +49,4 @@ Route::resource('/annee', AnneController::class);
 Route::get('/listedocument', [DepartementController::class, 'index'])->name('filtre.document');
 Route::post('/extractzipp', [ZippController::class,'exportDossier'])->name('extract.zip');
 Route::get('/rapport/controllers', [RapportController::class, 'listerapports'])->name('rappport.liste');
+Route::get('/p');

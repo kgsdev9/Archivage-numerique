@@ -51,9 +51,11 @@
                         <td>{{$vdossier->typedocument->libelle}}</td>
                         <td>{{$vdossier->created_at}}</td>
                         <td>
+                            @if(count($vdossier->documents)> 0)
+                            <a class="btn btn-success btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
+                            @else
                             <a class="btn btn-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
-                            <a class="btn btn-outline-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-edit"></i></a>
-                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
+                            @endif
                         </td>
                     </tr>
                     @empty

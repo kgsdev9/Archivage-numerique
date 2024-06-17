@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Storage;
 
 class DossierController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +56,7 @@ class DossierController extends Controller
             'typedocument_id'=>$request->typedossier,
             'user_id' => Auth::user()->id
         ]);
-        
+
         return response()->json(['success' => 'Création effecue avec sucess']);
 
         // return redirect()->back();

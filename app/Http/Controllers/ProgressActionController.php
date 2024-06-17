@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class ProgressActionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function typedepartement()
     {
         $listedepartement = Departement::all();

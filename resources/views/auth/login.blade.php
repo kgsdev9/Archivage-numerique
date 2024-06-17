@@ -31,9 +31,7 @@
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
         <div class="auth-one-bg-position auth-one-bg">
-            <img src="{{ asset('images/SONACO_Objectif.jpg') }}" alt="">
-
-
+            <img src="{{ asset('file-manager.jpg') }}" alt="" style="height:1000px; width:100%" >
         </div>
 
         <!-- auth page content -->
@@ -62,7 +60,7 @@
                                     <p class="text-muted">Un service de qualité une nouvelle plateforme de qualite.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form method="POST" action="{{ route('login')}}">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __(' Addresse  E-Mail ') }}</label>
@@ -75,9 +73,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <div class="float-end">
-                                                <a href="{{ route('password.request') }}" class="text-muted">Mot de passe oublié?</a>
-                                            </div>
+                                           
                                             <label class="form-label" for="password-input">Mot de passe </label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
