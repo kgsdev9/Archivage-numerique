@@ -8,7 +8,7 @@
                     <h1 class="mb-0 h2 fw-bold">Création d'un utilisateur Utilisateurs</h1>
                 </div>
                 <div class="d-flex">
-                    <a href="#" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Retourner</a>
+                    <a href="{{route('users.index')}}" class="btn btn-primary btn-sm"> <i class="fe fe-plus"></i>Retourner</a>
                 </div>
             </div>
         </div>

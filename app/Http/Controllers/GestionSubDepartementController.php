@@ -14,7 +14,7 @@ class GestionSubDepartementController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -69,6 +69,8 @@ class GestionSubDepartementController extends Controller
     {
         $departement = Departement::find($departementid);
         $listetypedocument = $departement->typedocuments;
+
+        // dd($listetypedocument->dossiers);
         return view('gestions.soudepartement.liste', compact('departement', 'listetypedocument'));
     }
 
@@ -78,9 +80,10 @@ class GestionSubDepartementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $departementId)
     {
-        //
+        $typedocument = TypeDocument::find($id);
+        return view('gestions.soudepartement.edition', compact('typedocument', 'departementId'));
     }
 
     /**
@@ -92,7 +95,13 @@ class GestionSubDepartementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $departement = intval($request->departementId);
+
+       $typedocument = TypeDocument::find($id);
+       $typedocument->update([
+         'libelle' => $request->libelle,
+       ]);
+       return redirect()->route('gestion.subdepartement', $departement);
     }
 
     /**

@@ -12,6 +12,7 @@ use App\Http\Controllers\ProgressActionController;
 use App\Http\Controllers\Rapport\RapportController;
 use App\Http\Controllers\Document\DocumentController;
 use App\Http\Controllers\GestionSubDepartementController;
+use App\Http\Controllers\Partage\PartageController;
 
 
 /*
@@ -34,11 +35,14 @@ Route::get('progressfolder/{DepartementId}/{TypeDocumentId}', [ProgressActionCon
 Route::get('progressfolderYear/{DepartementId}/{TypeDocumentId}/{AnnneId}', [ProgressActionController::class, 'exploreFolder'])->name('folder.explore');
 Route::resource('create/folder', DossierController::class);
 Route::post('/document/create', [DocumentController::class, 'store'])->name('document.store');
+Route::delete('/document/delete/{id}', [DocumentController::class, 'destroy'])->name('document.delete');
 Route::get('/search', [DocumentController::class, 'search']);
 Route::get('/typedepartement', [ProgressActionController::class, 'typedepartement'])->name('folder-progress');
 Route::get('/gestion/subdepartement/{departementid}', [GestionSubDepartementController::class, 'show'])->name('gestion.subdepartement');
 Route::post('/gestion/typedocoument/store', [GestionSubDepartementController::class, 'store'])->name('dep.typedoc.store');
 Route::delete('/gestion/typedocoument/delete/{id}', [GestionSubDepartementController::class, 'destroy'])->name('dep.typedoc.destroy');
+Route::get('/gestion/typedocument/edition/{id}/{departementId}', [GestionSubDepartementController::class, 'edit'])->name('dep.typedoc.edit');
+Route::patch('/gestion/typedocument/update/{id}', [GestionSubDepartementController::class, 'update'])->name('dep.typedoc.update');
 Route::get('/detail/dossier/{id}',  [DossierController::class, 'show'])->name('dossier.show');
 Route::get('/gestion/dossiers', [DossierController::class,'index'])->name('dossier.index');
 Route::get('/dossier/{id}', [DossierController::class,'destroy'])->name('dossier.destroy');
@@ -49,4 +53,4 @@ Route::resource('/annee', AnneController::class);
 Route::get('/listedocument', [DepartementController::class, 'index'])->name('filtre.document');
 Route::post('/extractzipp', [ZippController::class,'exportDossier'])->name('extract.zip');
 Route::get('/rapport/controllers', [RapportController::class, 'listerapports'])->name('rappport.liste');
-Route::get('/p');
+Route::resource('/partage', PartageController::class);

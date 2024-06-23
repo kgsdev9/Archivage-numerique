@@ -10,7 +10,7 @@
                         <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
                         <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
                     </svg>
-                     &nbsp;Tableau de Bords
+                     &nbsp;Tableau de Bord
                 </a>
             </li>
             <li class="nav-item">
@@ -24,7 +24,7 @@
                 </a>
                 <div id="navCourses" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link " href="{{route('roles.index')}}">Gestion role</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link " href="{{route('roles.index')}}">Gestion role</a></li> --}}
                         <li class="nav-item"><a class="nav-link " href="{{route('users.index')}}">Gestion Utilisateurs</a></li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@
                         <polyline points="16 6 12 2 8 6"></polyline>
                         <line x1="12" y1="2" x2="12" y2="15"></line>
                     </svg>
-                     &nbsp;Gestion Partage
+                     &nbsp;Gestion Partage (testing)
                 </a>
                 <a class="nav-link " href="{{route('rappport.liste')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
@@ -103,13 +103,13 @@
                         </svg>
                          &nbsp;
                     </span>
-                    <span class="ms-2">Messagerie</span>
+                    <span class="ms-2">Messagerie(testing)</span>
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item"><div class="nav-divider"></div></li>
             <!-- Nav item -->
-            <li class="nav-item"><div class="navbar-heading">Parametre</div></li>
+            <li class="nav-item"><div class="navbar-heading">Parametre (testing)</div></li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -119,7 +119,7 @@
                         <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                         <line x1="12" y1="22.08" x2="12" y2="12"></line>
                     </svg>
-                     &nbsp;Historique
+                     &nbsp;Historique (testing)
                 </a>
             </li>
             <!-- Nav item -->
@@ -129,7 +129,7 @@
                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                         <polyline points="13 2 13 9 20 9"></polyline>
                     </svg>
-                     &nbsp;Documentation
+                     &nbsp;Documentation (testing)
                 </a>
             </li>
         </ul>

@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="ms-3">
                                     <h5 class="mb-0">
-                                        <a href="#" class="text-inherit">{{$vdossier->code}}</a>
+                                        <a href="#" class="text-inherit">{{$vdossier->nom}}</a>
                                     </h5>
                                 </div>
                             </div>

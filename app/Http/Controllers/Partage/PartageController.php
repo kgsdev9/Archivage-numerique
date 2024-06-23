@@ -5,15 +5,8 @@ namespace App\Http\Controllers\Partage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PartageDossierController extends Controller
+class PartageController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +14,7 @@ class PartageDossierController extends Controller
      */
     public function index()
     {
-        //
+      return view('partage.index');
     }
 
     /**

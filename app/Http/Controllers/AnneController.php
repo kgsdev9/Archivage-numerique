@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annee;
 use Illuminate\Http\Request;
 
 class AnneController extends Controller
@@ -18,7 +19,8 @@ class AnneController extends Controller
      */
     public function index()
     {
-        //
+        $listeannee = Annee::all();
+        return view('administration.annees.liste', compact('listeannee'));
     }
 
     /**
@@ -28,7 +30,7 @@ class AnneController extends Controller
      */
     public function create()
     {
-        //
+        return view('administration.annees.create');
     }
 
     /**
@@ -39,7 +41,11 @@ class AnneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Annee::create([
+            'libelle' =>  $request->libelle,
+        ]);
+
+     return redirect()->route('annee.index');
     }
 
     /**
@@ -50,7 +56,8 @@ class AnneController extends Controller
      */
     public function show($id)
     {
-        //
+        $annee = Annee::find($id);
+        return view('administration.annees.show', compact('annee'));
     }
 
     /**
@@ -61,7 +68,9 @@ class AnneController extends Controller
      */
     public function edit($id)
     {
-        //
+        $annee = Annee::find($id);
+
+        return view('administration.annees.edit', compact('annee'));
     }
 
     /**
@@ -73,7 +82,12 @@ class AnneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $annee = Annee::find($id);
+        $annee->update([
+                'libelle' =>  $request->libelle,
+
+        ]);
+        return redirect()->route('annee.index');
     }
 
     /**
@@ -84,6 +98,8 @@ class AnneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $annee = Annee::find($id);
+        $annee->delete();
+        return redirect()->back();
     }
 }

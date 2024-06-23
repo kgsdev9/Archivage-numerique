@@ -9,25 +9,20 @@
                     <h1 class="mb-0 h2 fw-bold">Bienvenue {{Auth::user()->name}} </h1>
                 </div>
                 <div class="d-flex">
-
                     <a href="{{route('folder-progress')}}" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> &nbsp; Debuter la numerisation</a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row">
         @forelse ($listedepartement as $vlistedepartement)
         <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-            <!-- Card -->
             <div class="card mb-4">
-                <!-- Card body -->
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
                         <div>
                             <span class="fs-6 text-uppercase fw-semibold ls-md">{{$vlistedepartement->libelle}} Nmbre dossier {{count($vlistedepartement->dossiers)}}</span>
                         </div>
-
                         <div>
                            <img src="{{asset('images/dossier.png')}}" alt="" height="30px;">
                         </div>
@@ -37,18 +32,14 @@
         </div>
         @endforeach
     </div>
-
     <h5>Liste des recents dossiers</h5>
     <hr>
     <div class="row">
         <div>
             <div class="table-responsive card">
-                <!-- Table -->
                 <table  id="dataTableBasic" class="table mb-0 text-nowrap table-hover table-centered">
-                    <!-- Table Head -->
                     <thead class="table-light">
                         <tr>
-
                             <th>Code Dossier</th>
                             <th>Departement</th>
                             <th>Année </th>
@@ -95,5 +86,4 @@
         </div>
     </div>
 </section>
-
 @endsection

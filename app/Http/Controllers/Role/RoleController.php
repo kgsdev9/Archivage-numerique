@@ -13,7 +13,7 @@ class RoleController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +21,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('administration.roles.users.liste');
     }
 
     /**

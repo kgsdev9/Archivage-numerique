@@ -7,6 +7,7 @@ use App\Models\Document;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -16,7 +17,7 @@ class DocumentController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -58,10 +59,6 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->file);
-        // $fileName = $request->file('file')->getClientOriginalName();
-        // $path = $request->file('file')->storeAs('documents', $fileName, 'public');
-
         foreach ($request->file('document') as $file)
         {
            $fileName =  $file->getClientOriginalName();
@@ -120,6 +117,12 @@ class DocumentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doccument = Document::find($id);
+        // dd($doccument);
+        // $doc = Storage::url('documents/'. $doccument->fichier);
+        // dd($doc);
+        Storage::delete('documents/'. $doccument->fichier);
+        $doccument->delete();
+        return redirect()->back();
     }
 }

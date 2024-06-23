@@ -51,7 +51,7 @@
     <div class="row">
         <div>
             <div class="table-responsive card">
-                <table   class="table table-striped text-nowrap mb-0 table-centered">
+                <table  class="table mb-0 text-nowrap table-hover table-centered" id="dataTableBasic">
                     <thead class="table-light">
                         <tr>
                             <th>Code Dossier</th>
@@ -89,13 +89,12 @@
                             @else
                             <a class="btn btn-secondary btn-sm" href="{{route('dossier.show', $vdossier->id)}}"><i class="fe fe-eye"></i></a>
                             @endif
-
                             <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="chargeInfoDossier('{{$vdossier->nom}}|{{ $vdossier->id }}')">
                                 <i class="fe fe-plus"></i>
                                 </button>
-
+                            @if(count($vdossier->documents)<=0)
                             <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.destroy', $vdossier->id)}}"><i class="fe fe-trash"></i></a>
-
+                            @endif
                         </td>
                     </tr>
                     @empty

@@ -58,6 +58,7 @@
                         <td>{{$vlistetypedocument->libelle}}</td>
                         <td>
                             <div class="row">
+
                                 <div class="col-md-2">
                                     <form action="{{route('dep.typedoc.destroy', $vlistetypedocument->id)}}" method="POST">
                                         @csrf
@@ -65,8 +66,9 @@
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
                                     </form>
                                 </div>
+                               
                                 <div class="col-md-2">
-                                    <button class="btn btn-primary btn-sm" type="button">Modification</button>
+                                    <a class="btn btn-primary btn-sm" type="button" href="{{route('dep.typedoc.edit',['id'=>$vlistetypedocument->id,'departementId' =>$departement->id])}}">Modification</a>
                                 </div>
                             </div>
                         </td>

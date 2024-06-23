@@ -52,7 +52,7 @@
                         <td>{{$vdocument->created_at}}</td>
                         <td>
                             <a href="javascript:void(0);" class="btn btn-outline-secondary btn-sm" onclick='window.open("{{asset('storage/documents/'.$vdocument->fichier)}}", "vue document", "width=800,height=500");'><i class="fe fe-eye"></i></a></a>
-                            <a class="btn btn-outline-danger btn-sm" href="{{route('dossier.show', $vdocument->id)}}"><i class="fe fe-trash"></i></a>
+                          
                         </td>
                     </tr>
                     @empty
